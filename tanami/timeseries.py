@@ -57,3 +57,15 @@ class TimeSeries():
         X = X.reshape((X.shape[0], X.shape[1], len(X_cols)))
 
         return X, np.array(y)
+
+
+def split_series(df, X_cols, y_col, step, split=0.8):
+    length = len(df.index)
+    split_idx = int(length * split)
+    X_df = df[:split_idx]
+    y_df = df[split_idx:]
+
+    X_seq = TimeSeries(X_df).sequenced_series(X_cols, y_col, step)
+    y_seq = TimeSeries(y_df).sequenced_series(X_cols, y_col, step)
+
+    return X_seq, y_seq
