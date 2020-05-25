@@ -1,0 +1,1 @@
+_The Tanami Desert is a desert in northern Australia, situated in the Northern Territory and Western Australia._
